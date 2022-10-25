@@ -42,7 +42,7 @@ void setup() {
 void loop() {
   int touchValue = analogRead(touchPin);// read touchPin and store it in touchValue
   // if touchValue is HIGH
-  // TO COUNT TOUCHES WHILE THE MOUSE TOUCH NUMBER IS BELOW RATIO:
+  // TO COUNT TOUCHES WHILE THE SUBJECT TOUCH NUMBER IS BELOW RATIO:
   if(touchValue >= 999 && count <ratio&& Stat == 0) {
         count++;
         Serial.println("Touched ");
@@ -50,7 +50,7 @@ void loop() {
         while(analogRead(touchPin>=999)); 
               digitalWrite(touchPin, LOW); //if needed; will also help touch sensor cool down  
   }
-  // TO OPEN THE DOOR (AND COUNT THAT LAST TOUCH) ONCE THE MOUSE TOUCH NUMBER IS AT RATIO:
+  // TO OPEN THE DOOR (AND COUNT THAT LAST TOUCH) ONCE THE SUBJECT TOUCH NUMBER IS AT RATIO:
   else if (touchValue >= 999 && count==ratio && Stat == 0) {
     count++; //count touches in increments (of 1)
     //drive the stepper motor
@@ -63,7 +63,7 @@ void loop() {
       digitalWrite(10, LOW);
       digitalWrite(11, LOW);
       digitalWrite(touchPin, LOW); //if needed; will also help touch sensor cool down
-    while(analogRead(touchPin>=999)); //this means mouse has to let go and touch again (not just hold) to have multiple touches registered; also lets touch sensor cool down
+    while(analogRead(touchPin>=999)); //this means subject has to let go and touch again (not just hold) to have multiple touches registered; also lets touch sensor cool down
     ratio = ratio + 1; // add for PR
     count = 1; // reset touch count for next PR trial
     //print the info:
