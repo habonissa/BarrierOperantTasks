@@ -39,8 +39,7 @@ void loop() { //FIRST OPEN
     // read the state of the pushbutton value:
  int NOSEReading = analogRead(NOSEpoke); //read input
   delay(5);
-if ( NOSEReading >=999 && Stat ==0) { //"If capacative touch sensor is NOT being touched AND the door is in an opened state"... blah (sensorState == LOW when u get LeDs baack)
-    Serial.println("Touched");
+if ( NOSEReading >=999 && Stat ==0) { //"If capacative touch sensor is NOT being touched AND the door is in an opened state"... 
       myStepper.step(stepsPerRevolution);
       delay(500);
       //now cool off the stepper motor pins to avoid errors:
